@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { twiceMembers } from "../../data";
+import { sitePath } from "../../../site-path";
+
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "TWICE Members / Alison's Personal Lab",
@@ -11,9 +14,9 @@ export default function TwiceMembers() {
   return (
     <main className="archive-page archive-twice members-page">
       <nav className="archive-nav section-shell" aria-label="TWICE member navigation">
-        <Link className="wordmark" href="/" aria-label="Back to Alison's home">A<span>/</span>L</Link>
-        <div className="archive-nav-links"><Link href="/music/taylor">Taylor Swift</Link><Link href="/music/twice">TWICE</Link></div>
-        <Link className="archive-back" href="/music/twice">← album archive</Link>
+        <Link className="wordmark" href={sitePath("/")} aria-label="Back to Alison's home">A<span>/</span>L</Link>
+        <div className="archive-nav-links"><Link href={sitePath("/music/taylor")}>Taylor Swift</Link><Link href={sitePath("/music/twice")}>TWICE</Link></div>
+        <Link className="archive-back" href={sitePath("/music/twice")}>← album archive</Link>
       </nav>
 
       <header className="members-hero section-shell">
@@ -40,7 +43,7 @@ export default function TwiceMembers() {
         </div>
       </section>
 
-      <footer className="archive-footer section-shell"><span>ALISON / TWICE MEMBERS</span><Link href="/music/twice">back to archive ↑</Link><span>© 2026</span></footer>
+      <footer className="archive-footer section-shell"><span>ALISON / TWICE MEMBERS</span><Link href={sitePath("/music/twice")}>back to archive ↑</Link><span>© 2026</span></footer>
     </main>
   );
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import {
   Anton,
   Caveat,
@@ -10,6 +9,7 @@ import {
   Special_Elite,
   UnifrakturCook,
 } from "next/font/google";
+import { siteBasePath, sitePath } from "./site-path";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -63,38 +63,35 @@ const siteTitle = "Alison's Personal Lab";
 const siteDescription =
   "A small personal lab for research, ideas, and the songs that keep Alison moving.";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") ?? "localhost:3000";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host.startsWith("localhost") ? "http" : "https");
-  const metadataBase = new URL(`${protocol}://${host}`);
-  const imageUrl = new URL("/og.png", metadataBase);
+export const dynamic = "force-static";
 
-  return {
-    metadataBase,
+const metadataBase = new URL(
+  (process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "http://localhost:3000") + siteBasePath + "/",
+);
+const imageUrl = new URL(sitePath("/og.png"), metadataBase);
+
+export const metadata: Metadata = {
+  metadataBase,
+  title: siteTitle,
+  description: siteDescription,
+  icons: {
+    icon: sitePath("/favicon.svg"),
+    shortcut: sitePath("/favicon.svg"),
+  },
+  openGraph: {
+    type: "website",
+    url: metadataBase.toString(),
     title: siteTitle,
     description: siteDescription,
-    icons: {
-      icon: "/favicon.svg",
-      shortcut: "/favicon.svg",
-    },
-    openGraph: {
-      type: "website",
-      url: metadataBase.toString(),
-      title: siteTitle,
-      description: siteDescription,
-      images: [{ url: imageUrl, width: 1536, height: 1024, alt: siteTitle }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: siteTitle,
-      description: siteDescription,
-      images: [imageUrl.toString()],
-    },
-  };
-}
+    images: [{ url: imageUrl, width: 1536, height: 1024, alt: siteTitle }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: [imageUrl.toString()],
+  },
+};
 
 export default function RootLayout({
   children,

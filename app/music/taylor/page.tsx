@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ArchivePage } from "../ArchivePage";
 import { taylorAlbums } from "../data";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Taylor Swift Archive / Alison's Personal Lab",
   description: "Alison's visual archive of Taylor Swift eras, albums, and songs.",

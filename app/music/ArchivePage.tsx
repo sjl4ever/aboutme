@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import { sitePath } from "../site-path";
 import type { Album } from "./data";
 
 type ArchivePageProps = {
@@ -36,12 +37,12 @@ export function ArchivePage({
   return (
     <main className={`archive-page archive-${variant}`}>
       <nav className="archive-nav section-shell" aria-label={`${artist} archive navigation`}>
-        <Link className="wordmark" href="/" aria-label="Back to Alison's home">A<span>/</span>L</Link>
+        <Link className="wordmark" href={sitePath("/")} aria-label="Back to Alison's home">A<span>/</span>L</Link>
         <div className="archive-nav-links">
-          <Link href="/music/taylor">Taylor Swift</Link>
-          <Link href="/music/twice">TWICE</Link>
+          <Link href={sitePath("/music/taylor")}>Taylor Swift</Link>
+          <Link href={sitePath("/music/twice")}>TWICE</Link>
         </div>
-        <Link className="archive-back" href="/">← personal lab</Link>
+        <Link className="archive-back" href={sitePath("/")}>← personal lab</Link>
       </nav>
 
       <header className="exhibit-hero section-shell">
@@ -52,12 +53,12 @@ export function ArchivePage({
             <p>{intro}</p>
             <div className="exhibit-links">
               <a href={officialHref} target="_blank" rel="noreferrer">{officialLabel} ↗</a>
-              {secondaryHref && secondaryLabel ? <Link href={secondaryHref}>{secondaryLabel} ↗</Link> : null}
+              {secondaryHref && secondaryLabel ? <Link href={sitePath(secondaryHref)}>{secondaryLabel} ↗</Link> : null}
             </div>
           </div>
         </div>
         <figure className="exhibit-hero-art">
-          <img src={heroAlbum.cover} alt={`${heroAlbum.title} album cover`} />
+          <img src={sitePath(heroAlbum.cover)} alt={`${heroAlbum.title} album cover`} />
           <figcaption><span>{heroAlbum.year} / current chapter</span><strong>{heroAlbum.title}</strong></figcaption>
         </figure>
         <div className="exhibit-hero-foot" aria-hidden="true">
@@ -89,7 +90,7 @@ export function ArchivePage({
               } as CSSProperties}
             >
               <div className="exhibit-cover">
-                <img loading={index > 1 ? "lazy" : "eager"} decoding="async" src={album.cover} alt={`${album.title} album cover`} />
+                <img loading={index > 1 ? "lazy" : "eager"} decoding="async" src={sitePath(album.cover)} alt={`${album.title} album cover`} />
                 <span>{album.year}</span>
               </div>
               <div className="exhibit-copy">
@@ -106,7 +107,7 @@ export function ArchivePage({
 
       <footer className="archive-footer section-shell">
         <span>ALISON / MUSIC ARCHIVE</span>
-        <Link href="/">back to personal lab ↑</Link>
+        <Link href={sitePath("/")}>back to personal lab ↑</Link>
         <span>© 2026</span>
       </footer>
     </main>

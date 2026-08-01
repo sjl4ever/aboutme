@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ArchivePage } from "../ArchivePage";
 import { twiceAlbums } from "../data";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "TWICE Archive / Alison's Personal Lab",
   description: "Alison's visual archive of TWICE albums and songs.",

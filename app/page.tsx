@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { sitePath } from "./site-path";
+
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Alison's Personal Lab",
@@ -110,12 +113,12 @@ export default function Home() {
           <p className="section-note">Two artists, two separate rooms.</p>
         </div>
         <div className="gateway-grid">
-          <a className="gateway-card gateway-taylor" href="/music/taylor">
-            <div className="gateway-art"><img src="/albums/taylor/showgirl.jpg" alt="The Life of a Showgirl album cover" /></div>
+          <a className="gateway-card gateway-taylor" href={sitePath("/music/taylor")}>
+            <div className="gateway-art"><img src={sitePath("/albums/taylor/showgirl.jpg")} alt="The Life of a Showgirl album cover" /></div>
             <div className="gateway-copy"><span>01 / 12 eras</span><h2>Taylor<br /><em>Swift</em></h2><p>lyrics · eras · reinvention</p><strong>enter archive ↗</strong></div>
           </a>
-          <a className="gateway-card gateway-twice" href="/music/twice">
-            <div className="gateway-art"><img src="/albums/twice/ten.jpg" alt="TEN: The Story Goes On album cover" /></div>
+          <a className="gateway-card gateway-twice" href={sitePath("/music/twice")}>
+            <div className="gateway-art"><img src={sitePath("/albums/twice/ten.jpg")} alt="TEN: The Story Goes On album cover" /></div>
             <div className="gateway-copy"><span>02 / 12 chapters</span><h2>TWICE<br /><em>archive</em></h2><p>nine colors · one orbit</p><strong>enter archive ↗</strong></div>
           </a>
         </div>
