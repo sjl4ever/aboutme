@@ -29,8 +29,7 @@ test("server-renders Alison's personal lab", async () => {
   assert.match(html, /id="music"/);
   assert.match(html, /href="\/music\/taylor"/);
   assert.match(html, /href="\/music\/twice"/);
-  assert.match(html, /id="experiments"/);
-  assert.match(html, /id="signals"/);
+  assert.doesNotMatch(html, /id="experiments"|id="signals"|available for a hello/i);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });
 

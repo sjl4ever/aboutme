@@ -15,7 +15,7 @@ export default function TwiceArchive() {
       artist="TWICE"
       label="02 / nine colors, one orbit"
       headline="Nine colors keep moving together."
-      intro="早期的明亮俏皮、成熟期的自我确认、夏日感与更大的国际舞台，都被九个人的性格与默契串在一起。"
+      intro="TWICE / twelve chapters / nine voices, one orbit."
       officialHref="https://twice.jype.com/Default/Discography"
       officialLabel="official TWICE discography"
       secondaryHref="/music/twice/members"

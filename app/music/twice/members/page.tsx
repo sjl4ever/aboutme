@@ -22,7 +22,7 @@ export default function TwiceMembers() {
       <header className="members-hero section-shell">
         <p className="exhibit-label">03 / nine voices, one orbit</p>
         <h1>The people inside<br /><em>the picture.</em></h1>
-        <p>从舞台中心到安静的镜头边缘，九个人共同组成 TWICE 不同章节里的光。</p>
+        <p>Nine voices, one orbit.</p>
         <a href="https://twice.jype.com/Default/Profile" target="_blank" rel="noreferrer">official JYP profiles ↗</a>
       </header>
 
