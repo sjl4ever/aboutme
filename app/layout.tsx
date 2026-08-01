@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Anton,
+  Caveat,
+  Cormorant_Garamond,
+  Fredoka,
+  Geist,
+  Geist_Mono,
+  Special_Elite,
+  UnifrakturCook,
+} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,6 +20,43 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const archiveSerif = Cormorant_Garamond({
+  variable: "--font-archive-serif",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const archiveScript = Caveat({
+  variable: "--font-archive-script",
+  subsets: ["latin"],
+  weight: ["500", "700"],
+});
+
+const archiveBubble = Fredoka({
+  variable: "--font-archive-bubble",
+  subsets: ["latin"],
+  weight: ["500", "700"],
+});
+
+const archiveDisplay = Anton({
+  variable: "--font-archive-display",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const archiveTypewriter = Special_Elite({
+  variable: "--font-archive-typewriter",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const archiveBlackletter = UnifrakturCook({
+  variable: "--font-archive-blackletter",
+  subsets: ["latin"],
+  weight: "700",
 });
 
 const siteTitle = "Alison's Personal Lab";
@@ -57,7 +103,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${archiveSerif.variable} ${archiveScript.variable} ${archiveBubble.variable} ${archiveDisplay.variable} ${archiveTypewriter.variable} ${archiveBlackletter.variable}`}>
         {children}
       </body>
     </html>
