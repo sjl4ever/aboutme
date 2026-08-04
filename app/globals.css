@@ -944,7 +944,6 @@ h2 em {
 .archive-page {
   background: #f3f0eb;
   min-height: 100vh;
-  overflow: clip;
   position: relative;
 }
 
