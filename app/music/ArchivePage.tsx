@@ -21,7 +21,10 @@ function eraKey(title: string) {
 }
 
 function wordmarkPath(variant: ArchivePageProps["variant"], title: string) {
-  return variant === "twice" ? sitePath(`/wordmarks/twice/${eraKey(title)}.png`) : null;
+  const key = eraKey(title);
+  return variant === "twice" && !["twicecoaster-lane-1", "taste-of-love", "ready-to-be"].includes(key)
+    ? sitePath(`/wordmarks/twice/${key}.png`)
+    : null;
 }
 
 export function ArchivePage({

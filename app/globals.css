@@ -2145,16 +2145,33 @@ h2 em {
   height: auto;
   max-height: clamp(92px, 12vw, 170px);
   max-width: 100%;
-  mix-blend-mode: multiply;
   object-fit: contain;
   object-position: left center;
   width: auto;
 }
 
-.exhibit-stage[data-era="feel-special"] .exhibit-wordmark-title img,
-.exhibit-stage[data-era="ready-to-be"] .exhibit-wordmark-title img,
-.exhibit-stage[data-era="with-you-th"] .exhibit-wordmark-title img {
-  mix-blend-mode: normal;
+.exhibit-stage[data-era="twicecoaster-lane-1"] .exhibit-copy h2 {
+  color: #f05c88;
+  font-family: var(--font-archive-script), cursive;
+  font-weight: 700;
+  letter-spacing: -.07em;
+  text-shadow: 0 3px 0 rgba(255, 255, 255, .92);
+}
+
+.exhibit-stage[data-era="taste-of-love"] .exhibit-copy h2 {
+  color: #164b9b;
+  font-family: var(--font-archive-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -.07em;
+}
+
+.exhibit-stage[data-era="ready-to-be"] .exhibit-copy h2 {
+  color: #e5e8ed;
+  font-family: var(--font-archive-display), Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: .01em;
+  text-transform: uppercase;
 }
 
 .exhibit-tracks {
