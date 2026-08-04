@@ -20,6 +20,10 @@ function eraKey(title: string) {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
+function wordmarkPath(variant: ArchivePageProps["variant"], title: string) {
+  return variant === "twice" ? sitePath(`/wordmarks/twice/${eraKey(title)}.png`) : null;
+}
+
 export function ArchivePage({
   artist,
   label,
@@ -95,7 +99,9 @@ export function ArchivePage({
               </div>
               <div className="exhibit-copy">
                 <div className="exhibit-kicker"><span>{album.mood}</span><span>{String(index + 1).padStart(2, "0")} / {String(albums.length).padStart(2, "0")}</span></div>
-                <h2>{album.title}</h2>
+                <h2 className={wordmarkPath(variant, album.title) ? "exhibit-wordmark-title" : undefined}>
+                  {wordmarkPath(variant, album.title) ? <img src={wordmarkPath(variant, album.title)!} alt={album.title} /> : album.title}
+                </h2>
                 <div className="exhibit-tracks">{album.songs.map((song) => <span key={song}>{song}</span>)}</div>
                 <p className="exhibit-note">{album.note}</p>
               </div>
