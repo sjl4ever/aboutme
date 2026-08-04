@@ -1331,6 +1331,19 @@ h2 em {
 .era-font-bubble h2 { font-family: var(--font-archive-bubble), "Arial Rounded MT Bold", sans-serif; font-weight: 700; letter-spacing: -0.055em; }
 .era-font-luxury h2 { font-family: var(--font-archive-serif), "Bodoni MT", Didot, serif; font-weight: 600; letter-spacing: -0.04em; }
 
+.archive-twice .exhibit-stage[data-era="the-story-begins"] .exhibit-copy h2 { font-family: var(--font-archive-bubble), sans-serif; font-weight: 700; letter-spacing: -.08em; }
+.archive-twice .exhibit-stage[data-era="twicecoaster-lane-1"] .exhibit-copy h2 { font-family: var(--font-archive-display), sans-serif; font-weight: 400; letter-spacing: -.06em; text-transform: uppercase; }
+.archive-twice .exhibit-stage[data-era="twicetagram"] .exhibit-copy h2 { font-family: var(--font-archive-script), cursive; font-weight: 700; letter-spacing: -.05em; }
+.archive-twice .exhibit-stage[data-era="what-is-love"] .exhibit-copy h2 { font-family: var(--font-archive-serif), Georgia, serif; font-style: italic; font-weight: 600; letter-spacing: -.06em; }
+.archive-twice .exhibit-stage[data-era="feel-special"] .exhibit-copy h2 { font-family: var(--font-archive-serif), Georgia, serif; font-weight: 600; letter-spacing: .01em; text-transform: uppercase; }
+.archive-twice .exhibit-stage[data-era="eyes-wide-open"] .exhibit-copy h2 { font-family: var(--font-archive-display), sans-serif; font-weight: 400; letter-spacing: .02em; text-transform: uppercase; }
+.archive-twice .exhibit-stage[data-era="formula-of-love-o-t-3"] .exhibit-copy h2 { font-family: var(--font-geist-sans), Arial, sans-serif; font-weight: 700; letter-spacing: -.09em; }
+.archive-twice .exhibit-stage[data-era="taste-of-love"] .exhibit-copy h2 { font-family: var(--font-archive-script), cursive; font-weight: 500; letter-spacing: -.06em; }
+.archive-twice .exhibit-stage[data-era="ready-to-be"] .exhibit-copy h2 { font-family: var(--font-archive-display), sans-serif; font-weight: 400; letter-spacing: .01em; text-transform: uppercase; }
+.archive-twice .exhibit-stage[data-era="with-you-th"] .exhibit-copy h2 { font-family: var(--font-archive-serif), Georgia, serif; font-style: italic; font-weight: 600; letter-spacing: -.05em; }
+.archive-twice .exhibit-stage[data-era="this-is-for"] .exhibit-copy h2 { font-family: var(--font-archive-display), sans-serif; font-weight: 400; letter-spacing: .02em; text-transform: uppercase; }
+.archive-twice .exhibit-stage[data-era="ten-the-story-goes-on"] .exhibit-copy h2 { font-family: var(--font-archive-serif), Georgia, serif; font-weight: 600; letter-spacing: -.03em; }
+
 .era-card[data-era="reputation"] {
   background:
     linear-gradient(115deg, transparent 64%, rgba(255, 255, 255, .045) 64%),
