@@ -2133,23 +2133,6 @@ h2 em {
   overflow-wrap: anywhere;
 }
 
-.exhibit-copy h2.exhibit-wordmark-title {
-  align-items: center;
-  display: flex;
-  min-height: clamp(92px, 12vw, 170px);
-  overflow: visible;
-}
-
-.exhibit-wordmark-title img {
-  display: block;
-  height: auto;
-  max-height: clamp(92px, 12vw, 170px);
-  max-width: 100%;
-  object-fit: contain;
-  object-position: left center;
-  width: auto;
-}
-
 .exhibit-stage[data-era="twicecoaster-lane-1"] .exhibit-copy h2 {
   color: #f05c88;
   font-family: var(--font-archive-script), cursive;
@@ -2172,6 +2155,149 @@ h2 em {
   font-weight: 400;
   letter-spacing: .01em;
   text-transform: uppercase;
+}
+
+.archive-taylor .exhibit-stage[data-era="taylor-swift"] .exhibit-copy h2 {
+  color: #315c4e;
+  font-family: var(--font-archive-script), cursive;
+  transform: rotate(-2deg);
+}
+
+.archive-taylor .exhibit-stage[data-era="fearless"] .exhibit-copy h2 {
+  color: #9c6a1f;
+  font-family: var(--font-archive-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.archive-taylor .exhibit-stage[data-era="speak-now"] .exhibit-copy h2 {
+  color: #75458b;
+  font-family: var(--font-archive-script), cursive;
+  font-weight: 700;
+}
+
+.archive-taylor .exhibit-stage[data-era="red"] .exhibit-copy h2 {
+  color: #a12632;
+  font-family: var(--font-archive-display), sans-serif;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+}
+
+.archive-taylor .exhibit-stage[data-era="1989"] .exhibit-copy h2 {
+  color: #2f7891;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.08em;
+}
+
+.archive-taylor .exhibit-stage[data-era="reputation"] .exhibit-copy h2 {
+  color: #f4f2ed;
+  font-family: var(--font-archive-typewriter), monospace;
+  font-size: clamp(2.8rem, 5.4vw, 6.8rem);
+  letter-spacing: -.08em;
+  text-transform: lowercase;
+}
+
+.archive-taylor .exhibit-stage[data-era="lover"] .exhibit-copy h2 {
+  color: #4f73bd;
+  font-family: var(--font-archive-script), cursive;
+  font-weight: 700;
+}
+
+.archive-taylor .exhibit-stage[data-era="folklore"] .exhibit-copy h2 {
+  color: #3e3e3a;
+  font-family: var(--font-archive-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.archive-taylor .exhibit-stage[data-era="evermore"] .exhibit-copy h2 {
+  color: #744b37;
+  font-family: var(--font-archive-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.archive-taylor .exhibit-stage[data-era="midnights"] .exhibit-copy h2 {
+  color: #d2c5ed;
+  font-family: var(--font-archive-display), sans-serif;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.archive-taylor .exhibit-stage[data-era="the-tortured-poets-department"] .exhibit-copy h2 {
+  color: #302b27;
+  font-family: var(--font-archive-typewriter), monospace;
+  font-size: clamp(2rem, 3.8vw, 4.6rem);
+  letter-spacing: -.08em;
+}
+
+.archive-taylor .exhibit-stage[data-era="the-life-of-a-showgirl"] .exhibit-copy h2 {
+  color: #176b66;
+  font-family: var(--font-archive-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.archive-twice .exhibit-stage[data-era="the-story-begins"] .exhibit-copy h2 {
+  color: #e85278;
+  font-family: var(--font-archive-bubble), sans-serif;
+  letter-spacing: -.07em;
+}
+
+.archive-twice .exhibit-stage[data-era="twicetagram"] .exhibit-copy h2 {
+  color: #2676b8;
+  font-family: var(--font-archive-script), cursive;
+  font-weight: 700;
+}
+
+.archive-twice .exhibit-stage[data-era="what-is-love"] .exhibit-copy h2 {
+  color: #171717;
+  font-family: var(--font-archive-display), sans-serif;
+  letter-spacing: -.03em;
+}
+
+.archive-twice .exhibit-stage[data-era="feel-special"] .exhibit-copy h2 {
+  color: #fff3c8;
+  font-family: var(--font-archive-serif), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -.05em;
+  text-shadow: 0 3px 0 rgba(43, 24, 5, .65);
+}
+
+.archive-twice .exhibit-stage[data-era="eyes-wide-open"] .exhibit-copy h2 {
+  color: #f5ece4;
+  font-family: var(--font-archive-serif), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -.06em;
+}
+
+.archive-twice .exhibit-stage[data-era="formula-of-love-o-t-3"] .exhibit-copy h2 {
+  color: #b33c34;
+  font-family: var(--font-archive-script), cursive;
+  font-weight: 700;
+}
+
+.archive-twice .exhibit-stage[data-era="with-you-th"] .exhibit-copy h2 {
+  color: #68409b;
+  font-family: var(--font-archive-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, .58);
+}
+
+.archive-twice .exhibit-stage[data-era="this-is-for"] .exhibit-copy h2 {
+  color: #254646;
+  font-family: var(--font-archive-display), sans-serif;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+}
+
+.archive-twice .exhibit-stage[data-era="ten-the-story-goes-on"] .exhibit-copy h2 {
+  color: #f06a3e;
+  font-family: var(--font-archive-bubble), sans-serif;
+  letter-spacing: -.06em;
+  text-shadow: 2px 3px 0 #1d2940;
 }
 
 .exhibit-tracks {
