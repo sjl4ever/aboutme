@@ -79,5 +79,7 @@ test("ships the owner-only cloud-backed Changsha editor", async () => {
   assert.match(html, /\/rest\/v1\/changsha_sites/);
   assert.match(html, /\/storage\/v1\/object\/changsha-photos\//);
   assert.match(html, /正在上传原图/);
+  assert.match(html, /距离长沙还有.*小时.*分.*秒/);
+  assert.match(html, /setInterval\(updateTrip,1000\)/);
   assert.doesNotMatch(html, /sb_secret_|service_role|toDataURL\(/);
 });
