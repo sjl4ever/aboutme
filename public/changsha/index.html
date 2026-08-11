@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ff6f9f">
+<meta name="description" content="Charlie & Alison 的 2026 长沙三天两晚旅行计划：城市夜游、岳麓山、橘子洲夜景、湖南博物院与长沙美食。">
+<title>Charlie&Alison的长沙行</title>
+<style>
+:root{
+  --ink:#202024;--paper:#fffaf0;--paper2:#fffef9;--muted:#746d73;
+  --pink:#ff6f9f;--pink-soft:#ffdce8;--yellow:#ffe662;--blue:#6cccf2;
+  --blue-soft:#dff5ff;--green:#9ddd5b;--orange:#ff9448;--purple:#9a76f5;
+  --line:2.5px solid var(--ink);--shadow:6px 6px 0 var(--ink);
+  --radius:26px;--ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);
+  font-family:"Arial Rounded MT Bold","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(circle at 18px 18px,rgba(255,111,159,.11) 2px,transparent 3px) 0 0/38px 38px,
+    var(--paper);
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
+img{max-width:100%;display:block}
+.shell{width:min(1120px,calc(100% - 28px));margin:auto}
+.section{padding:68px 0;scroll-margin-top:92px}
+.kicker{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:2px solid var(--ink);border-radius:999px;background:var(--yellow);font-size:12px;font-weight:900}
+.title{margin:13px 0 0;font-size:clamp(40px,7vw,74px);line-height:.95;letter-spacing:-.055em}
+.lead{max-width:720px;margin:14px 0 0;color:var(--muted);line-height:1.75}
+.card{background:var(--paper2);border:var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.view-pop{transition:.2s var(--ease)}
+.view-pop:hover{transform:translate(-2px,-4px)}
+/* nav */
+.nav{
+  position:sticky;top:10px;z-index:100;width:min(1020px,calc(100% - 24px));margin:10px auto 0;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:9px 11px 9px 15px;border:var(--line);border-radius:999px;background:rgba(255,254,249,.94);
+  box-shadow:4px 4px 0 var(--ink);backdrop-filter:blur(15px)
+}
+.brand{font-weight:1000;white-space:nowrap}
+.navlinks{display:flex;gap:3px;align-items:center}
+.navlinks a{padding:8px 10px;border-radius:999px;font-size:12px;font-weight:900}
+.navlinks a:hover,.navlinks a.active{background:var(--yellow)}
+.edit-entry{
+  width:38px;height:38px;border:2px solid var(--ink);border-radius:50%;background:var(--paper2);
+  display:grid;place-items:center;cursor:pointer;font-size:17px;transition:.18s
+}
+.edit-entry:hover{background:var(--pink-soft);transform:rotate(7deg)}
+/* hero */
+.hero{padding:58px 0 38px}
+.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:34px;align-items:center}
+.trip-label{display:inline-flex;padding:8px 13px;border:var(--line);border-radius:999px;background:var(--green);font-size:12px;font-weight:1000;letter-spacing:.08em;transform:rotate(-2deg)}
+.hero h1{margin:22px 0 0;font-size:clamp(60px,9vw,108px);line-height:.8;letter-spacing:-.075em}
+.hero h1 span{display:block;margin-top:20px;color:var(--pink);font-size:.48em;letter-spacing:-.04em;-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
+.hero-copy p{font-size:16px;line-height:1.72;max-width:590px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{padding:8px 11px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-size:12px;font-weight:900;transform:rotate(var(--r,-2deg))}
+.hero-visual{position:relative;min-height:525px}
+.hero-blob{position:absolute;inset:9% 0 5% 5%;background:var(--blue);border:var(--line);border-radius:44% 56% 61% 39%/45% 45% 55% 55%;transform:rotate(4deg)}
+.hero-photo{position:absolute;filter:drop-shadow(0 0 3px white) drop-shadow(7px 8px 0 rgba(32,32,36,.86));transition:.24s var(--ease)}
+.hero-photo:hover{transform:translateY(-7px) rotate(1deg)}
+.hero-photo.a{width:64%;left:-1%;bottom:0;z-index:3}
+.hero-photo.b{width:57%;right:-2%;bottom:0;z-index:4}
+.bubble{position:absolute;z-index:6;padding:9px 13px;border:2px solid var(--ink);border-radius:999px;background:var(--yellow);box-shadow:3px 3px 0 var(--ink);font-weight:1000;font-size:13px}
+.bubble.b1{right:3%;top:12%;transform:rotate(5deg)}.bubble.b2{left:3%;top:22%;background:var(--pink-soft);transform:rotate(-5deg)}
+.trip-console{margin-top:30px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:18px;border:var(--line);border-radius:26px;background:var(--purple);color:#fff;box-shadow:var(--shadow)}
+.console-icon{width:66px;height:66px;display:grid;place-items:center;border:var(--line);border-radius:19px;background:var(--yellow);color:var(--ink);font-size:31px;transform:rotate(-5deg)}
+.console-title{font-size:23px;font-weight:1000}.console-text{margin-top:5px;opacity:.9;font-size:13px;line-height:1.5}
+.console-action{padding:10px 13px;border:2px solid var(--ink);border-radius:14px;background:var(--yellow);color:var(--ink);box-shadow:3px 3px 0 var(--ink);font-weight:900;cursor:pointer}
+/* travel stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.stat{padding:18px;border:var(--line);border-radius:22px;background:var(--paper2)}
+.stat strong{display:block;font-size:22px}.stat small{display:block;margin-top:6px;color:var(--muted);line-height:1.5}
+/* headings */
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px}
+.section-intro{min-width:0}
+/* itinerary */
+.itinerary-wrap{margin-top:27px}
+.day-tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}
+.day-tab{padding:11px 15px;border:2px solid var(--ink);border-radius:999px;background:#fff;box-shadow:3px 3px 0 var(--ink);font-weight:1000;cursor:pointer}
+.day-tab.active{background:var(--yellow);transform:translate(-1px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.day-panel{display:none}.day-panel.active{display:block;animation:panelIn .28s var(--ease)}
+@keyframes panelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.day-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);gap:18px;align-items:start}
+.timeline{padding:22px}
+.route-stop{
+  position:relative;display:grid;grid-template-columns:78px 1fr;gap:15px;
+  padding:15px 0;border-bottom:2px dashed #e6d8de
+}
+.route-stop:last-child{border-bottom:0}
+.route-stop time{font-size:13px;font-weight:1000;color:var(--pink);padding-top:2px}
+.route-stop h3{margin:0;font-size:19px}.route-stop p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.55}
+.route-stop .dot{position:absolute;left:67px;top:20px;width:10px;height:10px;border-radius:50%;background:var(--pink);border:2px solid var(--ink)}
+.route-stop .route-body{padding-left:13px}
+.day-aside{display:grid;gap:13px}
+.travel-note{padding:18px;border:var(--line);border-radius:22px;background:var(--blue-soft)}
+.travel-note.orange{background:var(--orange);color:#201c18}.travel-note.yellow{background:var(--yellow)}
+.travel-note h3{margin:0 0 8px;font-size:20px}.travel-note p{margin:0;font-size:13px;line-height:1.62}
+.night-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:12px}
+.night-step{padding:10px;border:2px solid var(--ink);border-radius:13px;background:#fff;font-size:11px}.night-step b{display:block;font-size:15px}
+/* highlights */
+.highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.highlight{padding:19px;min-height:170px;display:flex;flex-direction:column;justify-content:space-between;border:var(--line);border-radius:23px;box-shadow:4px 4px 0 var(--ink)}
+.highlight .emoji{font-size:36px}.highlight h3{margin:12px 0 5px;font-size:18px}.highlight p{margin:0;font-size:12px;color:#5f5960;line-height:1.55}
+/* gallery */
+.gallery{
+  display:grid;grid-template-columns:repeat(12,1fr);grid-auto-flow:dense;gap:14px;margin-top:25px
+}
+.memory-card{
+  position:relative;min-height:360px;overflow:hidden;border:var(--line);border-radius:25px;background:#fff;box-shadow:5px 5px 0 var(--ink)
+}
+.memory-card.wide{grid-column:span 7}.memory-card.tall{grid-column:span 5;grid-row:span 2;min-height:520px}
+.memory-card.half{grid-column:span 6}.memory-card.small{grid-column:span 4;min-height:320px}
+.memory-card img{width:100%;height:100%;object-fit:cover}
+.memory-card.contain img{object-fit:contain;background:#f6f5f2}
+.memory-card .cap{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 12px;border:2px solid var(--ink);border-radius:14px;background:rgba(255,254,249,.94);font-size:12px;font-weight:900;backdrop-filter:blur(8px)}
+.memory-card .label{position:absolute;z-index:4;left:12px;top:12px;padding:6px 9px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-size:11px;font-weight:1000}
+.memory-card.cutout{background:linear-gradient(145deg,var(--blue-soft),#fff1bd)}
+.memory-card.cutout img{object-fit:contain;padding:22px 18px 0;filter:drop-shadow(0 0 3px white) drop-shadow(6px 7px 0 rgba(32,32,36,.7))}
+.memory-card.people{background:var(--pink-soft)}
+.memory-card.people img{position:absolute;width:72%;height:auto;object-fit:contain;bottom:-2%;filter:drop-shadow(0 0 3px white) drop-shadow(5px 5px 0 rgba(32,32,36,.7))}
+.memory-card.people img:first-of-type{left:-6%;z-index:2}.memory-card.people img:nth-of-type(2){right:-11%;z-index:3;width:66%}
+/* food */
+.food-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:19px;align-items:stretch;margin-top:24px}
+.food-person{position:relative;min-height:460px;overflow:hidden;background:var(--pink-soft)}
+.food-person img{position:absolute;left:-8%;bottom:-2%;width:96%;filter:drop-shadow(0 0 3px white) drop-shadow(6px 7px 0 rgba(32,32,36,.68))}
+.food-person .speech{position:absolute;z-index:4;right:17px;top:20px;padding:9px 12px;border:2px solid var(--ink);border-radius:16px;background:var(--yellow);font-size:12px;font-weight:1000;transform:rotate(3deg)}
+.food-main{padding:24px;background:var(--yellow)}
+.food-main h3{margin:0;font-size:28px}.food-main>p{color:#5d575a;line-height:1.65}
+.food-chips{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.food-chip{padding:9px 12px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-size:12px;font-weight:900;transform:rotate(var(--r,0deg))}
+.food-machine{padding:17px;border:var(--line);border-radius:20px;background:var(--pink)}
+.food-result{min-height:92px;display:grid;place-items:center;padding:15px;border:var(--line);border-radius:15px;background:#fff;text-align:center;font-size:27px;font-weight:1000}
+.primary{width:100%;margin-top:10px;padding:12px;border:var(--line);border-radius:14px;background:var(--green);box-shadow:3px 3px 0 var(--ink);font-weight:1000;cursor:pointer}
+/* checklist */
+.check-grid{display:grid;grid-template-columns:1fr .62fr;gap:18px;margin-top:24px}
+.check-list,.progress-card{padding:22px}
+.check-item{position:relative;display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:2px dashed #e6d8de;font-size:13px;font-weight:850}
+.check-item:last-child{border-bottom:0}.check-item input{width:20px;height:20px;accent-color:var(--green)}
+.progress-card{background:var(--purple);color:#fff;position:sticky;top:92px}
+.progress-card .big{font-size:58px;font-weight:1000;line-height:1;margin:16px 0}
+.track{height:23px;padding:3px;border:var(--line);border-radius:999px;background:#fff}.fill{height:100%;width:0;border-radius:999px;background:var(--yellow);transition:.3s var(--ease)}
+/* footer */
+.final-note{margin-top:34px;padding:38px;border:var(--line);border-radius:30px;background:var(--pink);box-shadow:var(--shadow);text-align:center;font-size:clamp(29px,5vw,56px);line-height:1.05;letter-spacing:-.045em;font-weight:1000}
+.footer{padding:18px 0 45px;text-align:center;color:var(--muted);font-size:12px}
+/* subtle editable mode */
+.edit-mode [data-editable="text"]{cursor:text}
+.edit-mode [data-editable="text"]:hover{outline:2px dashed rgba(255,111,159,.65);outline-offset:3px;border-radius:5px}
+.edit-mode [data-editable="text"]:focus{outline:3px solid var(--pink);outline-offset:3px;background:rgba(255,230,98,.2)}
+.component{position:relative}
+.component-menu-trigger{
+  position:absolute;right:9px;top:9px;z-index:30;width:31px;height:31px;border:2px solid var(--ink);
+  border-radius:50%;background:rgba(255,254,249,.95);display:none;place-items:center;cursor:pointer;font-weight:1000;
+  box-shadow:2px 2px 0 var(--ink)
+}
+.edit-mode .component:hover>.component-menu-trigger,.edit-mode .component-menu-trigger.open{display:grid}
+.component-menu{
+  position:absolute;z-index:40;right:8px;top:45px;display:none;min-width:126px;padding:5px;
+  border:2px solid var(--ink);border-radius:13px;background:#fff;box-shadow:4px 4px 0 var(--ink)
+}
+.component-menu.open{display:grid}
+.component-menu button{border:0;background:transparent;text-align:left;padding:7px 9px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:850}
+.component-menu button:hover{background:var(--yellow)}.component-menu .danger:hover{background:#ffd7e2}
+.section-add{
+  display:none;width:34px;height:34px;flex:0 0 34px;border:2px solid var(--ink);border-radius:50%;
+  background:var(--green);box-shadow:2px 2px 0 var(--ink);cursor:pointer;font-size:20px;font-weight:1000
+}
+.edit-mode .section-add{display:grid;place-items:center}
+.edit-toolbar{
+  position:fixed;left:50%;bottom:14px;z-index:1000;display:none;align-items:center;gap:6px;max-width:calc(100% - 24px);
+  padding:7px;border:var(--line);border-radius:17px;background:rgba(255,254,249,.97);box-shadow:4px 4px 0 var(--ink);transform:translateX(-50%);backdrop-filter:blur(12px)
+}
+.edit-mode .edit-toolbar{display:flex}
+.edit-toolbar button{padding:8px 10px;border:2px solid var(--ink);border-radius:10px;background:#fff;cursor:pointer;font-size:11px;font-weight:900;white-space:nowrap}
+.edit-toolbar .save{background:var(--green)}.edit-toolbar .leave{background:var(--yellow)}
+.save-state{padding:0 6px;color:var(--muted);font-size:10px;white-space:nowrap}
+.edit-tip{
+  position:fixed;right:16px;bottom:76px;z-index:999;display:none;max-width:280px;padding:10px 12px;border:2px solid var(--ink);
+  border-radius:14px;background:var(--purple);color:#fff;box-shadow:3px 3px 0 var(--ink);font-size:11px;line-height:1.45
+}
+.edit-mode .edit-tip{display:block}
+/* responsive */
+@media(max-width:900px){
+  .hero-grid,.day-layout,.food-layout,.check-grid{grid-template-columns:1fr}
+  .hero-visual{min-height:470px}.stats,.highlights{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .memory-card,.memory-card.wide,.memory-card.half,.memory-card.small,.memory-card.tall{grid-column:span 1;grid-row:span 1;min-height:390px}
+  .progress-card{position:static}
+}
+@media(max-width:650px){
+  .navlinks{display:none}.hero{padding-top:34px}.hero-visual{min-height:400px}.hero h1{font-size:clamp(57px,19vw,88px)}
+  .trip-console{grid-template-columns:auto 1fr}.console-action{grid-column:1/-1}
+  .stats,.highlights{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr}.memory-card,.memory-card.wide,.memory-card.half,.memory-card.small,.memory-card.tall{min-height:410px}
+  .route-stop{grid-template-columns:65px 1fr}.route-stop .dot{left:55px}.night-strip{grid-template-columns:1fr 1fr}
+  .edit-toolbar{left:10px;right:10px;transform:none;overflow:auto;justify-content:flex-start}.edit-tip{bottom:82px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="#home">💗 Charlie&Alison的长沙行</a>
+  <div class="navlinks">
+    <a href="#route">行程</a><a href="#moments">旅途记忆</a><a href="#food">吃什么</a><a href="#checklist">准备清单</a>
+  </div>
+  <button class="edit-entry" id="editEntry" type="button" title="编辑这个旅行网站" aria-label="编辑这个旅行网站">✎</button>
+</nav>
+
+<main id="siteRoot">
+<section class="hero" id="home">
+<div class="shell">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="trip-label" data-editable="text">✦ CHANGSHA TRIP 2026 ✦</span>
+      <h1 data-editable="text">Charlie<br>&Alison<span>的长沙行 ♡</span></h1>
+      <p data-editable="text">2026.08.21 → 08.23 · 三天两晚。把长沙的夜景、美食和两个人的旅行瞬间，都装进这一页。</p>
+      <div class="tags" data-group="hero-tags">
+        <span class="tag component" style="--r:-3deg" data-template="tag"><span data-editable="text">🌶️ 吃遍长沙</span></span>
+        <span class="tag component" style="--r:3deg"><span data-editable="text">🍊 橘子洲夜游</span></span>
+        <span class="tag component" style="--r:-2deg"><span data-editable="text">📷 多拍合照</span></span>
+        <span class="tag component" style="--r:4deg"><span data-editable="text">💗 不赶路</span></span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-blob"></div>
+      <div class="bubble b1" data-editable="text">冲鸭～</div>
+      <div class="bubble b2" data-editable="text">长沙见！</div>
+      <img class="hero-photo a" src="assets/image-001.png" alt="Charlie 与 Alison 旅行人物贴纸之一">
+      <img class="hero-photo b" src="assets/image-002.png" alt="Charlie 与 Alison 旅行人物贴纸之二">
+    </div>
+  </div>
+
+  <div class="trip-console">
+    <div class="console-icon">🧳</div>
+    <div><div class="console-title" id="statusTitle">长沙旅行倒计时</div><div class="console-text" id="statusText">正在计算旅行状态……</div></div>
+    <button class="console-action" id="todayAction" type="button">看三日路线</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><strong>3 天 2 晚</strong><small>8 月 21 日—23 日</small></div>
+    <div class="stat"><strong>住五一广场</strong><small>夜游、吃饭、回酒店都方便</small></div>
+    <div class="stat"><strong>2 个夜景</strong><small>杜甫江阁 + 橘子洲</small></div>
+    <div class="stat"><strong>不绕路</strong><small>每天尽量集中一个片区</small></div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="shell">
+  <div class="section-head">
+    <div class="section-intro"><span class="kicker">TRAVEL MOOD</span><h2 class="title" data-editable="text">这趟长沙，怎么玩才舒服？</h2><p class="lead" data-editable="text">不是景点越多越好。八月的长沙更适合“上午行动、正午休息、晚上继续玩”。</p></div>
+    <button class="section-add" type="button" data-add-to="highlights" title="新增旅行亮点">＋</button>
+  </div>
+  <div class="highlights" data-group="highlights">
+    <article class="highlight component" style="background:#e9e1ff" data-template="highlight"><div class="emoji" data-editable="text">🗺️</div><div><h3 data-editable="text">路线要顺</h3><p data-editable="text">每一天围绕一个区域走，减少为了打卡反复坐车。</p></div></article>
+    <article class="highlight component" style="background:var(--pink-soft)"><div class="emoji" data-editable="text">🍜</div><div><h3 data-editable="text">认真吃饭</h3><p data-editable="text">小吃少量多吃，正餐留给真正想吃的湘菜。</p></div></article>
+    <article class="highlight component" style="background:var(--blue-soft)"><div class="emoji" data-editable="text">☀️</div><div><h3 data-editable="text">躲开正午</h3><p data-editable="text">最热的时候喝咖啡、吃饭、逛室内，不硬撑。</p></div></article>
+    <article class="highlight component" style="background:#e8f7ce"><div class="emoji" data-editable="text">🌃</div><div><h3 data-editable="text">夜晚才是重点</h3><p data-editable="text">杜甫江阁与橘子洲都留在夜色里，体验会更好。</p></div></article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="route">
+<div class="shell">
+  <div class="section-head">
+    <div class="section-intro"><span class="kicker" style="background:var(--blue)">ITINERARY</span><h2 class="title" data-editable="text">长沙 3 天 2 晚路线</h2><p class="lead" data-editable="text">点击 Day 1 / Day 2 / Day 3 切换。编辑模式下，每一站旁边都可以单独移动、复制或删除。</p></div>
+    <button class="section-add" type="button" data-add-route title="给当前日期新增一站">＋</button>
+  </div>
+
+  <div class="itinerary-wrap">
+    <div class="day-tabs">
+      <button class="day-tab active" type="button" data-day="1">🍓 DAY 1 · 城市夜游</button>
+      <button class="day-tab" type="button" data-day="2">🍊 DAY 2 · 岳麓山 + 橘子洲</button>
+      <button class="day-tab" type="button" data-day="3">💜 DAY 3 · 文化长沙</button>
+    </div>
+
+    <section class="day-panel active" data-panel="1">
+      <div class="day-layout">
+        <div class="timeline card" data-group="route-1">
+          <div class="route-stop component" data-template="route"><time data-editable="text">12:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">五一广场</h3><p data-editable="text">酒店放行李 → IFS → 简单吃点，正式开启长沙。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">14:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">太平街</h3><p data-editable="text">老街、小店、边走边拍，别在这里一次吃太撑。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">15:30</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">文和友</h3><p data-editable="text">主要看复古场景；排队太久就跳过，不影响路线。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">17:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">坡子街 → 黄兴路</h3><p data-editable="text">正式进入长沙吃吃喝喝模式。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">18:30</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">南门口</h3><p data-editable="text">继续本地小吃，原则还是少量多吃。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">20:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">杜甫江阁 🌃</h3><p data-editable="text">第一天压轴：等亮灯，看湘江夜景。</p></div></div>
+        </div>
+        <aside class="day-aside">
+          <div class="travel-note yellow component"><h3 data-editable="text">DAY 1 关键词</h3><p data-editable="text">城市漫步 · 湘味小吃 · 湘江夜景。第一天不要安排太重，留点体力给第二天。</p></div>
+          <div class="travel-note component"><h3 data-editable="text">不排队原则</h3><p data-editable="text">文和友、网红餐厅如果队伍离谱，直接跳过。长沙不是只有一家店。</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="day-panel" data-panel="2">
+      <div class="day-layout">
+        <div class="timeline card" data-group="route-2">
+          <div class="route-stop component" data-template="route"><time data-editable="text">08:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">岳麓山</h3><p data-editable="text">早点出发，八月不要在最热的时候才开始爬。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">10:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">爱晚亭</h3><p data-editable="text">沿路线顺路打卡，不折返。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">10:30</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">岳麓书院</h3><p data-editable="text">慢慢逛约一小时，别只顾着拍照。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">12:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">麓山南路</h3><p data-editable="text">午饭 + 吹空调 + 恢复体力。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">14:30</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">后湖</h3><p data-editable="text">咖啡、小店、湖边散步，下午主动降强度。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">17:30</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">提前吃点东西</h3><p data-editable="text">不要饿着进入今天最重要的夜游。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">18:30–21:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">橘子洲 ★★★</h3><p data-editable="text">傍晚 → 日落 → 蓝调 → 夜景。建议坐观光车，别把浪漫夜游变成长距离暴走。</p></div></div>
+        </div>
+        <aside class="day-aside">
+          <div class="travel-note orange component"><h3 data-editable="text">🍊 把橘子洲留给晚上</h3><p data-editable="text">18:30 左右到，慢慢看天色从亮到暗。第二天的真正高光放在最后。</p><div class="night-strip"><div class="night-step"><b>18:30</b>傍晚</div><div class="night-step"><b>19:00左右</b>日落</div><div class="night-step"><b>19:30</b>蓝调</div><div class="night-step"><b>20:00+</b>夜景</div></div></div>
+          <div class="travel-note component"><h3 data-editable="text">这天最累</h3><p data-editable="text">上午山线，下午休息，晚上橘子洲。不要再硬塞远距离景点。</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="day-panel" data-panel="3">
+      <div class="day-layout">
+        <div class="timeline card" data-group="route-3">
+          <div class="route-stop component" data-template="route"><time data-editable="text">07:30</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">古开福寺</h3><p data-editable="text">早点来更安静，控制在约一小时。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">09:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">荷花池</h3><p data-editable="text">顺路看看即可，不单独耗太久。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">10:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">潮宗街</h3><p data-editable="text">老街、咖啡、骑楼和拍照。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">12:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">午饭</h3><p data-editable="text">吃完提前去博物院，不卡点赶路。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">13:00–16:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">湖南博物院 ★★★</h3><p data-editable="text">第三天核心项目，重点看马王堆相关展陈。</p></div></div>
+          <div class="route-stop component"><time data-editable="text">18:00</time><span class="dot"></span><div class="route-body"><h3 data-editable="text">扬帆夜市</h3><p data-editable="text">如果返程不早，用最后一顿长沙美食收尾；返程早直接删除。</p></div></div>
+        </div>
+        <aside class="day-aside">
+          <div class="travel-note yellow component"><h3 data-editable="text">博物院优先级最高</h3><p data-editable="text">第三天其他项目都能删减，但博物院预约和时间要先锁死。</p></div>
+          <div class="travel-note component"><h3 data-editable="text">返程留余量</h3><p data-editable="text">如果当晚返程，不要为了夜市把最后一天搞成冲刺。</p></div>
+        </aside>
+      </div>
+    </section>
+  </div>
+</div>
+</section>
+
+<section class="section" id="moments">
+<div class="shell">
+  <div class="section-head">
+    <div class="section-intro"><span class="kicker" style="background:var(--pink-soft)">TRIP PRELUDE</span><h2 class="title" data-editable="text">旅行前奏 · 我们的瞬间</h2><p class="lead" data-editable="text">这些照片不抢行程的戏，它们负责告诉别人：这是 Charlie & Alison 自己的旅行网站。</p></div>
+    <button class="section-add" type="button" data-add-photo title="新增照片">＋</button>
+  </div>
+  <div class="gallery" data-group="gallery">
+    <article class="memory-card wide cutout component" data-template="memory"><span class="label" data-editable="text">🌊 冒险瞬间</span><img src="assets/image-003.png" alt="漂流人像"><div class="cap" data-editable="text">激流勇进！夏天就是要有一点冒险。</div></article>
+    <article class="memory-card tall people component"><span class="label" data-editable="text">💗 欢乐日常</span><img src="assets/image-004.png" alt="人物贴纸一"><img src="assets/image-005.png" alt="人物贴纸二"><div class="cap" data-editable="text">两个人的日常，也值得放在旅行首页。</div></article>
+    <article class="memory-card half component"><span class="label" data-editable="text">💐 花束时刻</span><img src="assets/image-006.jpg" alt="长椅与花束合照"><div class="cap" data-editable="text">出发以前，先收藏一些温柔的日常。</div></article>
+    <article class="memory-card half contain component"><span class="label" data-editable="text">🎨 手绘时光</span><img src="assets/image-007.jpg" alt="手绘纪念图"><div class="cap" data-editable="text">从“未来可期”到“长沙见”，故事继续往下写。</div></article>
+    <article class="memory-card small component"><span class="label" data-editable="text">🥤 补给担当</span><img src="assets/image-008.jpg" alt="手拿饮品的欢乐照片"><div class="cap" data-editable="text">旅行还没开始，补给先拉满。</div></article>
+    <article class="memory-card small contain component"><span class="label" data-editable="text">🐱 猫猫时刻</span><img src="assets/image-009.jpg" alt="抱猫的拍立得照片"><div class="cap" data-editable="text">安静一点的日常，也留在这里。</div></article>
+    <article class="memory-card small component"><span class="label" data-editable="text">✨ 今日表情</span><img src="assets/image-010.jpg" alt="人物近景自拍"><div class="cap" data-editable="text">负责让这个网站不像模板，而是真的属于我们。</div></article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="food">
+<div class="shell">
+  <div class="section-head">
+    <div class="section-intro"><span class="kicker" style="background:var(--orange)">YUMMY</span><h2 class="title" data-editable="text">长沙吃什么？</h2><p class="lead" data-editable="text">决定不了就让网页帮你抽。重点不是吃遍所有网红店，而是别为了排队浪费半天。</p></div>
+    <button class="section-add" type="button" data-add-to="food-chips" title="新增美食">＋</button>
+  </div>
+  <div class="food-layout">
+    <article class="food-person card component"><span class="speech" data-editable="text">好吃到停不下来！</span><img src="assets/image-011.png" alt="拿火龙果的人物贴纸"></article>
+    <article class="food-main card">
+      <h3 data-editable="text">Charlie & Alison 的长沙食单</h3>
+      <p data-editable="text">少量多吃，随缘排队。真想吃的湘菜留给正餐，小吃负责一路尝。</p>
+      <div class="food-chips" data-group="food-chips">
+        <span class="food-chip component" data-template="food" style="--r:-3deg"><span data-editable="text">臭豆腐</span></span>
+        <span class="food-chip component" style="--r:3deg"><span data-editable="text">糖油粑粑</span></span>
+        <span class="food-chip component" style="--r:-2deg"><span data-editable="text">长沙米粉</span></span>
+        <span class="food-chip component" style="--r:4deg"><span data-editable="text">小炒黄牛肉</span></span>
+        <span class="food-chip component" style="--r:-4deg"><span data-editable="text">口味虾</span></span>
+        <span class="food-chip component" style="--r:2deg"><span data-editable="text">茶颜悦色</span></span>
+      </div>
+      <div class="food-machine">
+        <div class="food-result" id="foodResult">点一下，让长沙决定</div>
+        <button class="primary" id="foodButton" type="button">🎰 今天到底吃什么？</button>
+      </div>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="checklist">
+<div class="shell">
+  <div class="section-head">
+    <div class="section-intro"><span class="kicker" style="background:var(--green)">BEFORE WE GO</span><h2 class="title" data-editable="text">出发前，别漏东西</h2><p class="lead" data-editable="text">勾选状态保存在当前浏览器。编辑模式可以增删清单项。</p></div>
+    <button class="section-add" type="button" data-add-to="check-list" title="新增准备事项">＋</button>
+  </div>
+  <div class="check-grid">
+    <div class="check-list card" data-group="check-list">
+      <label class="check-item component" data-template="check"><input type="checkbox" data-key="hotel"><span data-editable="text">🏠 酒店</span></label>
+      <label class="check-item component"><input type="checkbox" data-key="transport"><span data-editable="text">🚄 往返交通</span></label>
+      <label class="check-item component"><input type="checkbox" data-key="orange"><span data-editable="text">🍊 橘子洲晚间预约</span></label>
+      <label class="check-item component"><input type="checkbox" data-key="mountain"><span data-editable="text">⛰️ 岳麓山预约</span></label>
+      <label class="check-item component"><input type="checkbox" data-key="museum"><span data-editable="text">🏺 湖南博物院预约</span></label>
+      <label class="check-item component"><input type="checkbox" data-key="id"><span data-editable="text">🪪 身份证</span></label>
+      <label class="check-item component"><input type="checkbox" data-key="sun"><span data-editable="text">☀️ 防晒 / 遮阳伞</span></label>
+      <label class="check-item component"><input type="checkbox" data-key="battery"><span data-editable="text">🔋 充电宝</span></label>
+      <label class="check-item component"><input type="checkbox" data-key="shoes"><span data-editable="text">👟 舒服的鞋</span></label>
+    </div>
+    <aside class="progress-card card"><b>TRIP READY ✦</b><div class="big" id="progressPct">0%</div><div class="track"><div class="fill" id="progressFill"></div></div><p>一项一项准备好，离长沙就更近一点。</p></aside>
+  </div>
+  <div class="final-note" data-editable="text">最重要的不是去了多少地方，<br>是 Charlie & Alison 一起去了长沙。♡</div>
+</div>
+</section>
+</main>
+
+<footer class="footer"><div class="shell">Charlie & Alison · Changsha 2026 · 旅行计划会变，快乐不用按表执行。</div></footer>
+
+<div class="edit-toolbar" id="editToolbar">
+  <button class="leave" id="leaveEdit" type="button">✓ 完成</button>
+  <button class="save" id="saveEdit" type="button">保存</button>
+  <button id="exportEdit" type="button">导出</button>
+  <button id="importEdit" type="button">导入</button>
+  <button id="resetEdit" type="button">恢复</button>
+  <span class="save-state" id="saveState">未修改</span>
+  <input id="importFile" type="file" accept="application/json" hidden>
+</div>
+<div class="edit-tip">编辑模式：直接点文字改内容；鼠标移到卡片/行程上，右上角 `•••` 可移动、复制、删除；区块标题旁的 `＋` 用来新增。</div>
+<input id="photoFile" type="file" accept="image/*" hidden>
+
+<script>
+(() => {
+  "use strict";
+  const ROOT_KEY="ca-changsha-site-v6";
+  const CHECK_KEY="ca-changsha-check-v6";
+  const root=document.getElementById("siteRoot");
+  const pristine=root.innerHTML;
+
+  // Restore edits before wiring interactions.
+  try{
+    const saved=localStorage.getItem(ROOT_KEY);
+    if(saved) root.innerHTML=saved;
+  }catch(e){console.warn(e)}
+
+  let editMode=false;
+  let activeDay="1";
+  const editEntry=document.getElementById("editEntry");
+  const saveState=document.getElementById("saveState");
+
+  const q=(s,c=document)=>c.querySelector(s);
+  const qa=(s,c=document)=>[...c.querySelectorAll(s)];
+  const uid=(p="x")=>p+"_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,6);
+
+  function toastState(text){saveState.textContent=text}
+  function cleanSnapshot(){
+    const clone=root.cloneNode(true);
+    qa(".component-menu-trigger,.component-menu",clone).forEach(x=>x.remove());
+    qa("[contenteditable]",clone).forEach(x=>x.removeAttribute("contenteditable"));
+    qa(".menu-open",clone).forEach(x=>x.classList.remove("menu-open"));
+    return clone.innerHTML;
+  }
+  function save(){
+    try{
+      localStorage.setItem(ROOT_KEY,cleanSnapshot());
+      toastState("已保存 "+new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}));
+    }catch(e){toastState("保存空间不足")}
+  }
+  function setEdit(on){
+    editMode=on;
+    document.documentElement.classList.toggle("edit-mode",on);
+    qa('[data-editable="text"]',root).forEach(el=>{
+      if(on) el.setAttribute("contenteditable","true"); else el.removeAttribute("contenteditable");
+    });
+    editEntry.textContent=on?"✓":"✎";
+    if(on) enhanceComponents();
+  }
+
+  // Component context menu: visible only on hover in edit mode.
+  function enhanceComponents(){
+    qa(".component",root).forEach(item=>{
+      if(q(":scope > .component-menu-trigger",item)) return;
+      const trigger=document.createElement("button");
+      trigger.type="button";trigger.className="component-menu-trigger";trigger.textContent="•••";trigger.title="编辑这个部件";
+      const menu=document.createElement("div");
+      menu.className="component-menu";
+      menu.innerHTML='<button type="button" data-op="up">↑ 上移</button><button type="button" data-op="down">↓ 下移</button><button type="button" data-op="clone">⧉ 复制</button><button type="button" class="danger" data-op="delete">× 删除</button>';
+      item.append(trigger,menu);
+      trigger.addEventListener("click",e=>{
+        e.preventDefault();e.stopPropagation();
+        qa(".component-menu.open",root).filter(x=>x!==menu).forEach(x=>x.classList.remove("open"));
+        qa(".component-menu-trigger.open",root).filter(x=>x!==trigger).forEach(x=>x.classList.remove("open"));
+        menu.classList.toggle("open");trigger.classList.toggle("open");
+      });
+      menu.addEventListener("click",e=>{
+        const btn=e.target.closest("[data-op]");if(!btn)return;
+        e.preventDefault();e.stopPropagation();
+        const op=btn.dataset.op;
+        if(op==="delete"){item.remove()}
+        if(op==="clone"){
+          const clone=item.cloneNode(true);
+          qa(".component-menu-trigger,.component-menu",clone).forEach(x=>x.remove());
+          qa("[contenteditable]",clone).forEach(x=>x.removeAttribute("contenteditable"));
+          qa("input[type=checkbox]",clone).forEach(x=>{x.checked=false;x.dataset.key=uid("custom")});
+          item.after(clone);
+        }
+        if(op==="up"){
+          const prev=item.previousElementSibling;
+          if(prev&&prev.classList.contains("component")) item.parentNode.insertBefore(item,prev);
+        }
+        if(op==="down"){
+          const next=item.nextElementSibling;
+          if(next&&next.classList.contains("component")) item.parentNode.insertBefore(next,item);
+        }
+        menu.classList.remove("open");trigger.classList.remove("open");
+        enhanceComponents();setEdit(true);wireChecks();toastState("有未保存修改");
+      });
+    });
+  }
+  document.addEventListener("click",e=>{
+    if(!e.target.closest(".component-menu-trigger,.component-menu")){
+      qa(".component-menu.open").forEach(x=>x.classList.remove("open"));
+      qa(".component-menu-trigger.open").forEach(x=>x.classList.remove("open"));
+    }
+  });
+
+  function cloneTemplate(groupName){
+    const group=q(`[data-group="${groupName}"]`,root);
+    if(!group)return null;
+    const template=q("[data-template]",group)||q(".component",group);
+    if(!template)return null;
+    const clone=template.cloneNode(true);
+    qa(".component-menu-trigger,.component-menu",clone).forEach(x=>x.remove());
+    qa("[contenteditable]",clone).forEach(x=>x.removeAttribute("contenteditable"));
+    if(groupName.startsWith("route-")){
+      q("time",clone).textContent="12:00";q("h3",clone).textContent="新地点";q("p",clone).textContent="点击这里修改这一站的安排。";
+    }else if(groupName==="highlights"){
+      q(".emoji",clone).textContent="✨";q("h3",clone).textContent="新旅行亮点";q("p",clone).textContent="点击这里修改说明。";
+    }else if(groupName==="hero-tags"){
+      q('[data-editable="text"]',clone).textContent="✨ 新标签";
+    }else if(groupName==="food-chips"){
+      q('[data-editable="text"]',clone).textContent="新美食";
+    }else if(groupName==="check-list"){
+      q("input",clone).checked=false;q("input",clone).dataset.key=uid("custom");q("span",clone).textContent="📝 新准备事项";
+    }
+    group.appendChild(clone);
+    enhanceComponents();setEdit(true);wireChecks();toastState("有未保存修改");
+    clone.scrollIntoView({behavior:"smooth",block:"center"});
+    return clone;
+  }
+
+  qa("[data-add-to]").forEach(btn=>btn.addEventListener("click",()=>cloneTemplate(btn.dataset.addTo)));
+  q("[data-add-route]").addEventListener("click",()=>cloneTemplate("route-"+activeDay));
+
+  // Add photo card with client-side compression so local editing can persist reasonably.
+  const photoFile=q("#photoFile");
+  q("[data-add-photo]").addEventListener("click",()=>photoFile.click());
+  photoFile.addEventListener("change",()=>{
+    const file=photoFile.files&&photoFile.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=()=>{
+      const img=new Image();
+      img.onload=()=>{
+        const max=1400,scale=Math.min(1,max/Math.max(img.width,img.height));
+        const canvas=document.createElement("canvas");canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);
+        canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);
+        const card=document.createElement("article");card.className="memory-card small component";
+        card.innerHTML='<span class="label" data-editable="text">📷 新照片</span><img alt="新增旅行照片"><div class="cap" data-editable="text">点击这里修改照片说明。</div>';
+        q("img",card).src=canvas.toDataURL("image/jpeg",.78);
+        q('[data-group="gallery"]',root).appendChild(card);
+        enhanceComponents();setEdit(true);toastState("有未保存修改");card.scrollIntoView({behavior:"smooth",block:"center"});
+      };
+      img.src=reader.result;
+    };
+    reader.readAsDataURL(file);photoFile.value="";
+  });
+
+  // Day tabs
+  function wireDays(){
+    qa(".day-tab",root).forEach(btn=>btn.addEventListener("click",()=>{
+      activeDay=btn.dataset.day;
+      qa(".day-tab",root).forEach(x=>x.classList.toggle("active",x===btn));
+      qa(".day-panel",root).forEach(p=>p.classList.toggle("active",p.dataset.panel===activeDay));
+    }));
+  }
+
+  // Food roulette
+  function wireFood(){
+    const btn=q("#foodButton",root), result=q("#foodResult",root);if(!btn||!result)return;
+    btn.addEventListener("click",()=>{
+      const foods=qa(".food-chip [data-editable]",root).map(x=>x.textContent.trim()).filter(Boolean);
+      if(!foods.length)return;
+      let i=0;btn.disabled=true;
+      const timer=setInterval(()=>{
+        result.textContent=foods[Math.floor(Math.random()*foods.length)];
+        if(++i>12){clearInterval(timer);result.textContent="今天就吃："+foods[Math.floor(Math.random()*foods.length)];btn.disabled=false}
+      },70);
+    });
+  }
+
+  // Checklist
+  function wireChecks(){
+    let saved={};try{saved=JSON.parse(localStorage.getItem(CHECK_KEY)||"{}")}catch(e){}
+    const boxes=qa('.check-item input[type="checkbox"]',root);
+    boxes.forEach((box,index)=>{
+      if(!box.dataset.key)box.dataset.key=uid("check");
+      box.checked=!!saved[box.dataset.key];
+      if(box.dataset.bound==="1")return;
+      box.dataset.bound="1";
+      box.addEventListener("change",()=>{
+        saved[box.dataset.key]=box.checked;localStorage.setItem(CHECK_KEY,JSON.stringify(saved));updateProgress()
+      });
+    });
+    function updateProgress(){
+      const current=qa('.check-item input[type="checkbox"]',root);
+      const done=current.filter(x=>x.checked).length;
+      const pct=current.length?Math.round(done/current.length*100):0;
+      const p=q("#progressPct",root),f=q("#progressFill",root);if(p)p.textContent=pct+"%";if(f)f.style.width=pct+"%";
+    }
+    updateProgress();
+  }
+
+  // Trip status
+  function updateTrip(){
+    const now=new Date(),start=new Date("2026-08-21T00:00:00+08:00"),end=new Date("2026-08-24T00:00:00+08:00");
+    const title=q("#statusTitle",root),text=q("#statusText",root);if(!title||!text)return;
+    const d=start-now;
+    if(d>0){
+      const days=Math.floor(d/86400000),hours=Math.floor((d%86400000)/3600000);
+      title.textContent=`距离长沙还有 ${days} 天`;
+      text.textContent=`还有 ${hours} 小时。先把预约、交通和行李解决，其他别提前焦虑。`;
+    }else if(now<end){
+      title.textContent="长沙旅行进行中 🍊";
+      text.textContent="今天的计划只是参考：累了就休息，好吃就停下来吃，别让行程表追着你跑。";
+    }else{
+      title.textContent="长沙已经变成回忆啦 ♡";
+      text.textContent="这个网站继续留着，之后可以把旅行现场的照片继续加进来。";
+    }
+  }
+
+  // Global edit controls
+  editEntry.addEventListener("click",()=>setEdit(!editMode));
+  q("#leaveEdit").addEventListener("click",()=>setEdit(false));
+  q("#saveEdit").addEventListener("click",save);
+  q("#resetEdit").addEventListener("click",()=>{
+    if(confirm("恢复最初版本？当前网页编辑内容会清空。")){
+      localStorage.removeItem(ROOT_KEY);root.innerHTML=pristine;initDynamic();setEdit(false);toastState("已恢复初始版")
+    }
+  });
+
+  q("#exportEdit").addEventListener("click",()=>{
+    const blob=new Blob([JSON.stringify({version:6,html:cleanSnapshot()},null,2)],{type:"application/json"});
+    const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="charlie-alison-changsha-edits.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)
+  });
+  const importFile=q("#importFile");
+  q("#importEdit").addEventListener("click",()=>importFile.click());
+  importFile.addEventListener("change",()=>{
+    const file=importFile.files&&importFile.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=()=>{
+      try{
+        const data=JSON.parse(reader.result);if(!data.html)throw new Error("bad");
+        root.innerHTML=data.html;initDynamic();setEdit(true);toastState("已导入，记得保存")
+      }catch(e){alert("这个编辑文件无法读取。")}
+    };
+    reader.readAsText(file);importFile.value="";
+  });
+
+  q("#todayAction",root)?.addEventListener("click",()=>q("#route",root).scrollIntoView({behavior:"smooth"}));
+
+  function initDynamic(){
+    wireDays();wireFood();wireChecks();enhanceComponents();updateTrip();
+  }
+  initDynamic();
+  setInterval(updateTrip,60000);
+})();
+</script>
+</body>
+</html>
