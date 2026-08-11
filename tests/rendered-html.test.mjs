@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(path = "/") {
@@ -68,4 +69,15 @@ test("server-renders the TWICE members exhibition", async () => {
     assert.match(html, new RegExp(member));
   }
   assert.match(html, /twice\.jype\.com\/Default\/Profile/);
+});
+
+test("ships the owner-only cloud-backed Changsha editor", async () => {
+  const html = await readFile(new URL("../public/changsha/index.html", import.meta.url), "utf8");
+
+  assert.match(html, /type="password"/);
+  assert.match(html, /sb_publishable_/);
+  assert.match(html, /\/rest\/v1\/changsha_sites/);
+  assert.match(html, /\/storage\/v1\/object\/changsha-photos\//);
+  assert.match(html, /正在上传原图/);
+  assert.doesNotMatch(html, /sb_secret_|service_role|toDataURL\(/);
 });
